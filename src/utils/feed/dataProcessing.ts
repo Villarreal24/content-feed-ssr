@@ -3,11 +3,7 @@ import moment from "moment";
 export const normalizeData = (data: any) => {
   return data.contentCards
     .map((item: any) => {
-      const authorFullName = `${item.textData.author.first} ${item.textData.author.last}`; // Join name
-      //   const isContentLong = item.textData.body.length > 150; // Characteres equal to 3 lines
-      //   const truncatedContent = isContentLong
-      //     ? item.textData.body.substring(0, 150) + "... read more"
-      //     : item.textData.body;
+      const authorFullName = `${item.textData.author.first} ${item.textData.author.last}`;
       return {
         id: item.id,
         imageUri: item.imageUri,

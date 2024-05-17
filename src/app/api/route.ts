@@ -12,7 +12,7 @@ export async function GET(req: Request) {
     });
 
     const data = await resp.json();
-    // console.log("DATA: ", data);
+
     return Response.json(data);
   } catch (error) {
     console.log(error);

@@ -1,9 +1,18 @@
-import React from "react";
+"use client";
 
-export default function Feed({ data }) {
+import React, { useState } from "react";
+import { FeedObject, Comments } from "@/utils/feed/types";
+
+export default function Feed({ data }: { data: FeedObject }) {
+  const [showFullText, setShowFullText] = useState(false);
+
+  const toggleText = () => {
+    setShowFullText(!showFullText);
+  };
+
   return (
     <div className="content w-full md:w-3/4 lg:w-1/2 mx-10 p-3">
-      {data.map((item, index: number) => (
+      {data.map((item: FeedObject, index: number) => (
         <div
           key={index}
           className="content-border mt-2 mb-5 border-2 p-4 rounded-xl"
@@ -21,11 +30,28 @@ export default function Feed({ data }) {
             <p className="font-semibold">{item.author}</p>
           </div>
           <p>{item.subTitle}</p>
-          <div className="py-5">
-            <p className="">{item.content}</p>
+          <div className="py-5 flex">
+            <p className="">
+              {showFullText ? item.content : item.content.slice(0, 150)}
+              {item.content.length > 150 && !showFullText ? (
+                <span
+                  onClick={toggleText}
+                  className="text-blue-500 cursor-pointer"
+                >
+                  {" Read more..."}
+                </span>
+              ) : (
+                <span
+                  onClick={toggleText}
+                  className="text-blue-500 cursor-pointer"
+                >
+                  {" Read less..."}
+                </span>
+              )}
+            </p>
           </div>
           <div className="py-5">
-            {item.comments.map((element, idx) => (
+            {item.comments.map((element: Comments, idx: number) => (
               <>
                 <div key={idx} className="flex justify-between">
                   <p>{element.text}</p>
