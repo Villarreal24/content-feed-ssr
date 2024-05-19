@@ -1,5 +1,4 @@
 export async function GET(req: Request) {
-  console.log("entra en la funcion del SSR");
   const baseUrl = process.env.BASE_API_URL;
 
   try {
@@ -12,7 +11,6 @@ export async function GET(req: Request) {
     });
 
     const data = await resp.json();
-
     return Response.json(data);
   } catch (error) {
     console.log(error);

@@ -5,9 +5,15 @@ export interface FeedObject {
   subTitle: string;
   author: string;
   content: string;
-  comments: [];
+  comments: Comments[];
   priority: number;
   publishDate: string;
+}
+
+export type FeedObjectArray = FeedObject[];
+
+export interface FeedProps {
+  data: FeedObjectArray; // data es un array de FeedObject
 }
 
 export interface Comments {
