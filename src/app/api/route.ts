@@ -1,4 +1,11 @@
-export async function GET(req: Request) {
+import { NextResponse } from "next/server";
+
+// ================================================
+//    THIS ENDPOINT IS TO GET THE DATA ARRAY OF
+//    THE CONTENT FEED, USING BASE URL OF .ENV
+// ================================================
+
+export async function GET() {
   const baseUrl = process.env.BASE_API_URL;
 
   try {
@@ -11,9 +18,9 @@ export async function GET(req: Request) {
     });
 
     const data = await resp.json();
-    return Response.json(data);
-  } catch (error) {
-    console.log(error);
-    return new Response("Failed to fetch data", { status: 500 });
+    return NextResponse.json(data, { status: 200 });
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json({ error: err });
   }
 }

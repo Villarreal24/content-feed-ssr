@@ -6,6 +6,7 @@ import { normalizeData } from "@/utils/feed/dataProcessing";
 export default async function Home() {
   const getData = async () => {
     try {
+      // CALL THE API ENDPOINT TO GET THE DATA OF THE FEED CONTENT
       const res = await fetch(`${baseUrl}/`, {
         method: "GET",
       });
@@ -13,6 +14,8 @@ export default async function Home() {
       if (!res.ok) {
         throw new Error("Failed to fetch data");
       }
+
+      // CALL THE FUNCTION WITH THE RESPONSE OF THE API TO NORMALIZE THE DATA AND IMPROVE IT
       const afterProcessingData = await normalizeData(data);
       return afterProcessingData;
     } catch (error) {

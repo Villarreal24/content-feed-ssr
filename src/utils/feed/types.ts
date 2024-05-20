@@ -13,7 +13,7 @@ export interface FeedObject {
 export type FeedObjectArray = FeedObject[];
 
 export interface FeedProps {
-  data: FeedObjectArray; // data es un array de FeedObject
+  data: FeedObjectArray;
 }
 
 export interface Comments {
