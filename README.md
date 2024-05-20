@@ -2,7 +2,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, install depedencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+Second, run the development server:
 
 ```bash
 npm run dev
@@ -16,22 +28,16 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Objetive of this project
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This is a simple project to emulate a feed like Instagram with a responsive UI. For the backend, I'm using SSR provided by Next.js, making an API call and processing the data to normalize it, making it easier to understand and quicker to render.
 
-## Learn More
+## Report on the project logic
 
-To learn more about Next.js, take a look at the following resources:
+I decided to use Next.js because it is a very good framework for faster development and integration of the backend using SSR and TypeScript as the main language. On the front end, I use Tailwind CSS to create the components and structure the folders correctly, making it easier to understand, maintain, and add new features quickly.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I also applied testing with Jest to the API call and the function to normalize the data. This was a bit tricky because I installed the dependencies for testing after creating the project, and I had some issues with the libraries to simulate and test the API call.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+For the function to normalize the data, I analyzed the data structure received from the API and also analyzed the design and how I would create the components to render the data. After this, I continued by creating the function to send the API response as a parameter and used .map() to iterate over all the objects, returning a new object with the best and easiest structure for the front end.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# content-feed-ssr
+# Content Feed ssr
